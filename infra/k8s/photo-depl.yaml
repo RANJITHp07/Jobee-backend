@@ -15,6 +15,28 @@ spec:
       containers:
         - name: photo   
           image: ranjithp007/photo
+          env:
+            - name: AWS_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: photo-secrets
+                  key: AWS_BUCKET_NAME
+            - name: AWS_BUCKET_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: photo-secrets
+                  key: AWS_BUCKET_REGION
+            - name: AWS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: photo-secrets
+                  key: AWS_ACCESS_KEY
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: photo-secrets
+                  key: AWS_SECRET_ACCESS_KEY
+
 ---
 apiVersion: v1
 kind: Service
