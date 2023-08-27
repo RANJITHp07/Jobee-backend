@@ -1,0 +1,66 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: ranjithp007/auth
+      context: auth
+      docker: 
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'         
+            dest: . 
+    # - image: ranjithp007/user
+    #   context: user
+    #   docker: 
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: 'src/**/*.ts'         
+    #         dest: .  
+    - image: ranjithp007/company
+      context: company
+      docker: 
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'         
+            dest: . 
+    - image: ranjithp007/job
+      context: job
+      docker: 
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'         
+            dest: .
+    - image: ranjithp007/payment
+      context: payment
+      docker: 
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'         
+            dest: .   
+    # - image: ranjithp007/chat
+    #   context: chat
+    #   docker: 
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: 'src/**/*.ts'         
+    #         dest: .                                 
+    # - image: ranjithp007/client
+    #   context: client
+    #   docker: 
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: '**/*.js'         
+    #         dest: .     

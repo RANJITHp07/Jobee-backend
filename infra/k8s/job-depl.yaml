@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job-depl
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: job
+  template:
+    metadata:
+      labels:
+        app: job
+    spec: 
+      containers:
+        - name: job    
+          image: ranjithp007/job
+          env:
+            - name: MONGO_URL
+              value: 'mongodb://job-mongo-srv:27017/auth'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: job-srv
+spec:
+  selector:
+    app: job
+  ports:
+    - name: job
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
