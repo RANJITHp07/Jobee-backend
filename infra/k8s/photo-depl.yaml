@@ -15,9 +15,6 @@ spec:
       containers:
         - name: photo   
           image: ranjithp007/photo
-          env:
-            - name: MONGO_URL
-              value: 'mongodb://photo-mongo-srv:27017/photo'
 ---
 apiVersion: v1
 kind: Service
