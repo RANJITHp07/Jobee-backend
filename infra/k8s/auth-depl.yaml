@@ -16,8 +16,24 @@ spec:
         - name: auth    
           image: ranjithp007/auth
           env:
-            - name: MONGO_URL
-              value: 'mongodb://auth-mongo-srv:27017/auth'
+          - name: MONGO_URL
+            value: 'mongodb://auth-mongo-srv:27017/auth'
+          - name: JWT_KEY
+            valueFrom:
+              secretKeyRef:
+                name: my-secret
+                key: JWT_KEY
+          - name: ADMIN_CREDENTIAL
+            valueFrom:
+              secretKeyRef:
+                name: my-secret
+                key: ADMIN_CREDENTIAL
+          - name: SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: my-secret
+                key: SECRET_KEY
+
 ---
 apiVersion: v1
 kind: Service
