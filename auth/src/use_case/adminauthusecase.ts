@@ -25,6 +25,7 @@ class Adminauthusecase{
     async signin(admin:Auth){
         try{
             const Admin=await this.authRepository.findByemail(admin.email)
+            console.log("jii")
             if(Admin){
                 return {
                     status:200,
@@ -96,7 +97,7 @@ class Adminauthusecase{
     async verifyEmail(email:string,username:string){
         try{
             const verify=await this.nodemailer.sendEmailVerification(email,username)
-            console.log("jii")
+            
             return {
                 status:200,
                 data:verify

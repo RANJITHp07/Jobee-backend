@@ -21,7 +21,7 @@ spec:
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
-                  name: my-secrets
+                  name: my-secret
                   key: JWT_KEY
             - name: PUBLISHABLE_KEY
               valueFrom:
