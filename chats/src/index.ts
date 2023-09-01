@@ -11,7 +11,7 @@ const startServer = async (): Promise<void> => {
     await Rabbitmqcreate();
     await Rabbitmqupadte()
 
-    const app = createServer();
+    const app = createServer()
 
     app?.listen(process.env.PORT, () => {
       console.log("Connected to the server");
