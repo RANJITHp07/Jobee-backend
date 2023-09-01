@@ -13,6 +13,7 @@ class Authusecase{
     async save(auth:Auth){
         try{
            const user=await this.authrepository.save(auth)
+           console.log("changes")
            return user
         }catch(err){
             throw err
