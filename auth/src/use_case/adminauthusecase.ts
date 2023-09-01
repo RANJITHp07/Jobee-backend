@@ -96,7 +96,7 @@ class Adminauthusecase{
     async verifyEmail(email:string,username:string){
         try{
             const verify=await this.nodemailer.sendEmailVerification(email,username)
-            console.log("Testing gitactions")
+            
             return {
                 status:200,
                 data:verify
