@@ -1,11 +1,11 @@
-name: deploy-auth
+name: deploy-manifest
 
 on: 
  push:
    branches:
      - main
    paths:
-     - 'auth/**'
+     - 'infra/**'
      
 jobs: 
  build:
