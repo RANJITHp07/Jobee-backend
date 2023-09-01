@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photo-depl
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: photo
+  template:
+    metadata:
+      labels:
+        app: photo
+    spec: 
+      containers:
+        - name: photo    
+          image: ranjithp007/photo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: photo-srv
+spec:
+  selector:
+    app: photo
+  ports:
+    - name: photo
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
