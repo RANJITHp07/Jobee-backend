@@ -27,3 +27,43 @@ build:
         manual: 
         - src: 'src/**/*.ts'
           dest: .
+    - image: ranjithp007/payment
+      context: payment
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual: 
+        - src: 'src/**/*.ts'
+          dest: .
+    - image: ranjithp007/company
+      context: company
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual: 
+        - src: 'src/**/*.ts'
+          dest: .  
+    - image: ranjithp007/photo
+      context: photo
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual: 
+        - src: 'src/**/*.ts'
+          dest: .
+    - image: ranjithp007/chat
+      context: chat
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual: 
+        - src: 'src/**/*.ts'
+          dest: .   
+    - image: ranjithp007/job
+      context: job
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual: 
+        - src: 'src/**/*.ts'
+          dest: .               
