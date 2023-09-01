@@ -4,8 +4,8 @@ kind: Config
 deploy:
   kubectl:
     manifests:
-      
       - infra/k8s/*
+      - infra/k8s-dev/*
 
 build:
   local:
