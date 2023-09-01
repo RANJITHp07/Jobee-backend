@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-    - host: jobeee.website
+    - host: www.jobeee.website
       http:
         paths:
           - path: /v4/api/auth/?(.*)
