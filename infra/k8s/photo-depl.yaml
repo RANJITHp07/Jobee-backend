@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: photo-depl
-spec: 
+spec:
   replicas: 1
   selector:
     matchLabels:
@@ -11,10 +11,32 @@ spec:
     metadata:
       labels:
         app: photo
-    spec: 
+    spec:
       containers:
-        - name: photo    
+        - name: photo
           image: ranjithp007/photo
+          env:
+            - name: AWS_BUCKET_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: photo-config
+                  key: AWS_BUCKET_NAME
+            - name: AWS_BUCKET_REGION
+              valueFrom:
+                configMapKeyRef:
+                  name: photo-config
+                  key: AWS_BUCKET_REGION
+            - name: AWS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secret
+                  key: AWS_ACCESS_KEY
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secret
+                  key: AWS_SECRET_ACCESS_KEY
+
 ---
 apiVersion: v1
 kind: Service
