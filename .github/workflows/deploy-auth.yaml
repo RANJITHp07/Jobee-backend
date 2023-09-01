@@ -2,22 +2,28 @@ name: deploy-auth
 
 on: 
  push:
-  branches:
-   - main
-  paths:
-   - 'auth/**'
+   branches:
+     - main
+   paths:
+     - 'auth/**'
+     
 jobs: 
  build:
-  runs-on: ubuntu-latest
-  steps: 
-   - name: Checkout code
-   - uses: actions/checkout@v2
-   - run: cd auth && docker build -t ranjithp007/auth .
-   - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-     env:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-   - run: docker push ranjithp007/auth 
-      
+   runs-on: ubuntu-latest
+   steps: 
+     - name: Checkout code
+       uses: actions/checkout@v2
+     - name: Build Docker Image
+       run: |
+         cd auth
+         docker build -t ranjithp007/auth .
+     - name: Login to Docker Hub
+       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+       env:
+         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+     - name: Push Docker Image
+       run: docker push ranjithp007/auth
+
    
    
