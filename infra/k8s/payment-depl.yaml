@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-depl
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment
+  template:
+    metadata:
+      labels:
+        app: payment
+    spec: 
+      containers:
+        - name: payment   
+          image: ranjithp007/payment
+          env:
+            - name: MONGO_URL
+              value: 'mongodb://payment-mongo-srv:27017/payment'
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-secrets
+                  key: JWT_KEY
+            - name: PUBLISHABLE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: payment-secrets
+                  key: PUBLISHABLE_KEY
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: payment-secrets
+                  key: SECRET_KEY
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-srv
+spec:
+  selector:
+    app: payment
+  ports:
+    - name: payment
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
