@@ -1,7 +1,7 @@
 import express from "express";
 import { Notificationcontoller } from "../../adapter/notificationController";
 import { Notificationusecase } from "../../usecase/notificationusecase";
-import { NotificationRepository } from "../repository/notificationRepository";
+import NotificationRepository  from "../repository/notificationRepository";
 
 const repository=new NotificationRepository();
 const usecase=new Notificationusecase(repository);
