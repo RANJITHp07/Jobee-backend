@@ -20,6 +20,7 @@ class Jobusecase{
 
     async save(job:Job){
         try{
+            console.log("changes")
             const Job= await this.jobRepository.save(job)
             return {
                 status:200,

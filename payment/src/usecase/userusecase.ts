@@ -17,7 +17,7 @@ class Userusecase{
 
     async save(){
         try{
-            console.log("changes")
+            
             await this.listener.listen("exchange1","User",async(data)=>{
                 if(data.role==="recruiter"){
                     const session=await this.stripesession.createSession(data.email)
