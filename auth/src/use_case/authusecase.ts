@@ -62,7 +62,7 @@ class Authusecase{
                 if(await this.encrypt.compare(user.password,Userlogin.password)){
         
                     const token=this.jwt.createJWT(Userlogin._id,Userlogin.admin)
-                    
+                    console.log("changes")
                     return {
                         status:200,
                         data:{
