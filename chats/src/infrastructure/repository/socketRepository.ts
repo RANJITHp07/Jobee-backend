@@ -14,12 +14,10 @@ export class SocketManager {
   private httpServer: HttpServer;
   private io: Server;
   private users: User[] = [];
-  private redisClient
 
   constructor() {
     
     this.httpServer = createHttpServer();
-    this.redisClient = new Redis("redis://redis-srv:6379")
     this.io = new Server(this.httpServer, {
       cors: {
         origin: "http://localhost:3000",
