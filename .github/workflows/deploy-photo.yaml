@@ -15,7 +15,7 @@ jobs:
        uses: actions/checkout@v2
      - name: Build Docker Image
        run: |
-         cd photo
+         cd photos
          docker build -t ranjithp007/photo .
      - name: Login to Docker Hub
        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD

@@ -26,7 +26,7 @@ if(bucketName && region && accessKeyId && secretAccessKey){
 
 
 export async function uploadFile(fileBuffer:Buffer, fileName:string, mimetype:any) {
-  console.log(mimetype)
+  console.log("changes")
   const uploadParams = {
     Bucket: bucketName,
     Body: fileBuffer,

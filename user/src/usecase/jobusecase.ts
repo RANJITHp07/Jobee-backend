@@ -17,6 +17,7 @@ class Jobusecase{
     }
 
     async jobApplied(id:string,userId:string){
+        console.log("changes")
         try{
             const user=await this.jobRepository.getUsers(id)
           
