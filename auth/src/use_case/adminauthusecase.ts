@@ -25,6 +25,7 @@ class Adminauthusecase{
     async signin(admin:Auth){
         try{
             const Admin=await this.authRepository.findByemail(admin.email)
+            console.log("jii")
             if(Admin){
                 return {
                     status:200,
