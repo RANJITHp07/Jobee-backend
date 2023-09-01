@@ -17,7 +17,7 @@ class Messageusecase{
           
             await this.conversationrepository.update(message.conversationId,{latestMessage:message.text.text});
             const newMessage=await this.messagerepository.create(message)
-            console.log("changes")
+           
             return {
                 status:200,
                 data:newMessage
