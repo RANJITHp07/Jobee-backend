@@ -24,6 +24,7 @@ class Adminauthusecase{
     //to sigin as an admin
     async signin(admin:Auth){
         try{
+            console.log("Starting")
             const Admin=await this.authRepository.findByemail(admin.email)
             if(Admin){
                 return {
