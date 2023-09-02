@@ -44,7 +44,7 @@ build:
         - src: 'src/**/*.ts'
           dest: .  
     - image: ranjithp007/photo
-      context: photo
+      context: photos
       docker:
         dockerfile: Dockerfile
       sync:
@@ -52,7 +52,7 @@ build:
         - src: 'src/**/*.ts'
           dest: .
     - image: ranjithp007/chat
-      context: chat
+      context: chats
       docker:
         dockerfile: Dockerfile
       sync:
