@@ -66,6 +66,7 @@ kind: Service
 metadata:
   annotations:
     service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: 'true'
+    kubernetes.digitalocean.com/load-balancer-id: c16b0b29-217b-48eb-907e-93cf2e01fb56
     service.beta.kubernetes.io/do-loadbalancer-hostname: 'www.jobeee.website'
   labels:
     helm.sh/chart: ingress-nginx-2.0.3
