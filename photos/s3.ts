@@ -13,6 +13,7 @@ const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
 
 let s3Client:any
 if(bucketName && region && accessKeyId && secretAccessKey){
+  
   s3Client = new S3Client({
     region,
     credentials: {
@@ -26,7 +27,7 @@ if(bucketName && region && accessKeyId && secretAccessKey){
 
 
 export async function uploadFile(fileBuffer:Buffer, fileName:string, mimetype:any) {
-  console.log("changes")
+  
   const uploadParams = {
     Bucket: bucketName,
     Body: fileBuffer,
@@ -34,7 +35,7 @@ export async function uploadFile(fileBuffer:Buffer, fileName:string, mimetype:an
     ContentType: mimetype
   }
   
-
+ 
   return await s3Client.send(new PutObjectCommand(uploadParams));
 }
 

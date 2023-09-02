@@ -56,6 +56,6 @@ app.post('/v1/api/upload', upload.single('file'), async (req, res) => {
   }
 });
 
-app.listen(3000,()=>{
+app.listen(5443,()=>{
     console.log("connected to the port")
 })
