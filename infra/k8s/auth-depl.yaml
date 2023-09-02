@@ -43,3 +43,17 @@ spec:
                 secretKeyRef:
                   name: my-secret
                   key: PASSWORD
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+spec:
+  selector:
+    app: chat
+  ports:
+    - name: chat
+      protocol: TCP
+      port: 3000
+      targetPort: 3000                  
