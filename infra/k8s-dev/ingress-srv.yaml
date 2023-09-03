@@ -11,49 +11,49 @@ spec:
       http:
         paths:
           - path: /v4/api/auth/?(.*)
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: auth-srv
                 port:
                   number: 3000
           - path: /v4/api/profile/?(.*)
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: user-srv
                 port:
                   number: 3000
           - path: /v6/api/job/?(.*)
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: job-srv
                 port:
                   number: 3000  
           - path: /v1/api/plans/?(.*)
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: payment-srv
                 port:
                   number: 3000
           - path: /v3/api/company/?(.*)
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: company-srv
                 port:
                   number: 3000
           - path: /v2/api/chat/?(.*)
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: chat-srv
                 port:
                   number: 3000
           - path: /v1/api/upload/?(.*)
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: photo-srv

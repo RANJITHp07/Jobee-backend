@@ -51,9 +51,9 @@ metadata:
   name: auth-srv
 spec:
   selector:
-    app: chat
+    app: auth
   ports:
-    - name: chat
+    - name: auth
       protocol: TCP
       port: 3000
       targetPort: 3000                  
