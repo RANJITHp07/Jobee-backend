@@ -1,4 +1,3 @@
-import nocache from "nocache";
 import { createServer } from "./infrastructure/config/app";
 import { connectDB } from "./infrastructure/config/connectdb"
 
