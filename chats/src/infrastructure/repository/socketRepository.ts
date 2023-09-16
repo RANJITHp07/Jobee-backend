@@ -1,7 +1,5 @@
-import UserModel from "../model/users"
 import { Server, Socket } from "socket.io";
 import { createServer as createHttpServer, Server as HttpServer } from "http";
-import Redis from 'ioredis'
 import ConversationModel from "../model/conversation";
 import NotificationRepository from "./notificationRepository";
 

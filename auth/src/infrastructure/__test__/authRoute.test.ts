@@ -1,7 +1,8 @@
 import request from 'supertest';
 import { createServer} from '../config/app';
 
-it('returns a 201 on successful signup', async () => {
+describe('exports',()=>{
+  it('returns a 201 on successful signup', async () => {
     return request(createServer)
       .post('/v4/api/auth/signin')
       .send({
@@ -11,3 +12,5 @@ it('returns a 201 on successful signup', async () => {
       })
       .expect(201);
   });
+})
+
