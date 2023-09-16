@@ -13,7 +13,7 @@ const startServer = async () => {
 
     const app = createServer();
 
-    app?.listen(process.env.PORT, () => {
+    app?.listen(3000, () => {
       console.log("Connected to the server");
     });
   } catch (err) {
