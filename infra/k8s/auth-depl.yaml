@@ -17,7 +17,7 @@ spec:
           image: ranjithp007/auth
           env:
             - name: MONGO_URL
-              value: 'mongodb://auth-mongo-srv:27017/auth'
+              value: 'mongodb+srv://ranjithp27122003:qwerty1234@cluster0.akd3bfz.mongodb.net/AUT?retryWrites=true&w=majority'
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
