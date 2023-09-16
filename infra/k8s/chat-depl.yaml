@@ -17,7 +17,10 @@ spec:
           image: ranjithp007/chat
           env:
             - name: MONGO_URL
-              value: 'mongodb://chat-mongo-srv:27017/chat'
+              valueFrom:
+                secretKeyRef:
+                  name: chat-mongo
+                  key:  MONGO_URL
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
