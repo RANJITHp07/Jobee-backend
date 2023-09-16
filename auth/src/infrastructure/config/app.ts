@@ -33,9 +33,6 @@ export const createServer = () => {
     app.use(AdminRoute);
 
    
-    app.all('*', async (req:Request, res:Response) => {
-      throw new Error("No such Route");
-    });
     
 
     // Error handling middleware
