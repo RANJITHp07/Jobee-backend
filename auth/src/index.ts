@@ -7,6 +7,6 @@ const app=createServer();
 
 connectDB().then(()=>{
     app?.listen(3000,()=>{
-        console.log(`connected to the server${process.env.PORT}`)
+        console.log(`connected to the server${process.env.EMAILID}${process.env.PASSWORD}`)
     })
 })
