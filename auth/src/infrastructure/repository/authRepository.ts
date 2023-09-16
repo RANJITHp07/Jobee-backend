@@ -1,14 +1,10 @@
 import Auth from "../../domain/auth"
 import IAuthRepository from "../../use_case/interface/authRepository"
 import AuthModel from "../model/authmodel"
-import Redis from "ioredis";
+
 
 
 class AuthRepository implements IAuthRepository{
-   
-
-    
-
        //created an auth of an user 
         async save(auth: Auth): Promise<unknown> {
             try{

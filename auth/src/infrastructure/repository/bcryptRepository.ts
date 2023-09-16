@@ -13,6 +13,7 @@ class Encrypt implements Hashpassword {
         const match = await bcrypt.compare(password, hashpassword);
        
         return match
+        
     }
 }
 
