@@ -17,8 +17,10 @@ spec:
           image: ranjithp007/payment
           env:
             - name: MONGO_URL
-              value: 'mongodb://payment-mongo-srv:27017/payment'
-            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: payment-mongo
+                  key:  MONGO_URL
               valueFrom:
                 secretKeyRef:
                   name: my-secret
