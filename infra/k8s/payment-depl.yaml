@@ -21,6 +21,7 @@ spec:
                 secretKeyRef:
                   name: mongo-payment
                   key:  MONGO_URL
+            - name: JWT_KEY      
               valueFrom:
                 secretKeyRef:
                   name: my-secret
