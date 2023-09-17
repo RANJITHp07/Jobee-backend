@@ -19,7 +19,7 @@ spec:
             - name: MONGO_URL
               valueFrom:
                 secretKeyRef:
-                  name: payment-mongo
+                  name: mongo-payment
                   key:  MONGO_URL
               valueFrom:
                 secretKeyRef:
