@@ -5,6 +5,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/websocket-services: "chat-srv"
 spec:
   rules:
     - host: www.jobeee.website
@@ -84,6 +85,10 @@ spec:
       port: 80
       protocol: TCP
       targetPort: http
+    - name: websocket
+      port: 6005
+      protocol: TCP
+      targetPort: websocket
     - name: https
       port: 443
       protocol: TCP
