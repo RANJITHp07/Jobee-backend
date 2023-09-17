@@ -60,6 +60,13 @@ spec:
                 name: photo-srv
                 port:
                   number: 3000
+          - path: /socket.io/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: chat-srv
+                port:
+                  number: 6005       
 ---
 
 apiVersion: v1
