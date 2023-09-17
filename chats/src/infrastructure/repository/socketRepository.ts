@@ -102,7 +102,7 @@ export class SocketManager {
   }
 
   start = (): void => {
-    this.httpServer.listen(6005, () => {
+    this.httpServer.listen(3000, () => {
       console.log("Socket server listening on port 6005");
     });
   };
