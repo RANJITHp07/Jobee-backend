@@ -34,7 +34,7 @@ class ConversationRepository implements IConversationRepository{
 
     async find(recieveId:string,senderId:string){
         try{
-            const convo=await  ConversationModel.find({members:[senderId,recieveId]})
+            const convo=await  ConversationModel.findOne({members:[senderId,recieveId]})
             return convo
         }catch(err){
             throw err
