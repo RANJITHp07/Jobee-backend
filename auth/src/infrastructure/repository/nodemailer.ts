@@ -15,11 +15,12 @@ class Nodemailer implements INodemailer {
 
   async sendEmailVerification(email: string, username: string) {
     try {
+      console.log(process.env.EMAILID,process.env.PASSWORD)
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
         secure: false,
-        requireTLS: true,
+        requireTLS: false,
         auth: {
           user: process.env.EMAILID,
           pass: process.env.PASSWORD,
