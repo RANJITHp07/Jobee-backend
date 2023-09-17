@@ -1,6 +1,6 @@
 
 import { connect } from "./infrastructure/config/rabbitmq";
-import { createServer } from "./infrastructure/config/app";
+import { httpServer } from "./infrastructure/config/app";
 import { connectDB } from "./infrastructure/config/connectdb";
 import { Rabbitmqcreate, Rabbitmqupadte } from "./infrastructure/middleware/rabbitmqMiddleware";
 
@@ -10,7 +10,7 @@ const startServer = async (): Promise<void> => {
     await Rabbitmqcreate();
     await Rabbitmqupadte()
 
-    const app = createServer()
+    const app = httpServer
 
     app?.listen(3000, () => {
       console.log("Connected to the server");

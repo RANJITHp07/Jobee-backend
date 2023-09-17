@@ -1,5 +1,6 @@
 import express, { Express } from "express";
 import cors from "cors";
+import http from 'http';
 import morgan from 'morgan';
 import ConvoRoute from "../../infrastructure/route/conversationRoute"
 import MessageRoute from "../../infrastructure/route/messageRoute"
@@ -8,15 +9,15 @@ import notificationRoute from "../route/notificationRoute"
 import { errorMiddleware } from "@job_portal/common";
 
 
-export const createServer = (): Express => {
   const app: Express = express();
   app.use(express.json());
   app.use(cors());
   app.use(morgan("dev"));
 
+  const httpServer = http.createServer(app);
 //socket.io connection
- const socket=new SocketManager()
- socket.start()
+ const socket=new SocketManager(httpServer)
+//  socket.start()
 
   // Routes
    app.use(ConvoRoute);
@@ -25,5 +26,5 @@ export const createServer = (): Express => {
 
    app.use(errorMiddleware);
 
-  return app;
-};
+  export {httpServer}
+
