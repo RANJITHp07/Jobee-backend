@@ -16,7 +16,8 @@ export class SocketManager {
   constructor() {
     
     this.httpServer = createHttpServer();
-    this.io = new Server(6005, {
+    console.log(this.httpServer)
+    this.io = new Server(this.httpServer, {
       cors: {
         origin: "http://localhost:3000",
       },
