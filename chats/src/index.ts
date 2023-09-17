@@ -5,7 +5,6 @@ import { connectDB } from "./infrastructure/config/connectdb";
 import { Rabbitmqcreate, Rabbitmqupadte } from "./infrastructure/middleware/rabbitmqMiddleware";
 
 const startServer = async (): Promise<void> => {
-  try {
     await connectDB();
     await connect();
     await Rabbitmqcreate();
@@ -16,9 +15,7 @@ const startServer = async (): Promise<void> => {
     app?.listen(3000, () => {
       console.log("Connected to the server");
     });
-  } catch (err) {
-    console.error("Error starting the server:", err);
-  }
+ 
 };
 
 startServer();
