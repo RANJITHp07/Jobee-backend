@@ -66,7 +66,7 @@ spec:
               service:
                 name: chat-srv
                 port:
-                  number: 6005       
+                  number: 3000   
 ---
 
 apiVersion: v1
