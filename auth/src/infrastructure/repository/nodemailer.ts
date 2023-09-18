@@ -34,7 +34,16 @@ class Nodemailer implements INodemailer {
         from: 'testingjobee007@gmail.com',
         to: email,
         subject: 'Email Verification',
-        html: `<div>Hello ${username}, please enter this OTP to verify your email: <strong>${otp}</strong></div>`,
+        html: `
+        <div>
+          <div style="margin-bottom: 10px">
+            Hello ${username}, Welcome to <strong>Jobee</strong>! We are excited to have you on board. To get started, please verify your email address:
+          </div>
+          <div style="width: 75%; margin: 0 auto; background-color: black; color: white; padding: 4px; font-size: 3rem; text-align: center;">
+            <strong style="text">${otp}</strong>
+          </div>
+        </div>
+      `
       };
 
       await transporter.sendMail(mailOptions);
