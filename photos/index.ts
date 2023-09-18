@@ -47,14 +47,22 @@ app.post('/v1/api/upload', upload.single('file'), async (req, res) => {
 
     await uploadFile(fileBuffer, imageName, file.mimetype);
 
-    const url = await getObjectSignedUrl(imageName);
-
-    res.status(200).json(url);
+    res.status(200).json(imageName);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'An error occurred' });
   }
 });
+
+app.get("v1/api/upload",async(req, res)=>{
+  try{
+       const url=getObjectSignedUrl(req.query.imageName as string)
+       res.status(200).json(url);
+  }catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+})
 
 app.listen(3000,()=>{
     console.log("connected to the port")
