@@ -54,7 +54,7 @@ app.post('/v1/api/upload', upload.single('file'), async (req, res) => {
   }
 });
 
-app.get("v1/api/upload",async(req, res)=>{
+app.get("/v1/api/upload",async(req, res)=>{
   try{
        const url=getObjectSignedUrl(req.query.imageName as string)
        res.status(200).json(url);
