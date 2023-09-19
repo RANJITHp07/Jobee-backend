@@ -14,5 +14,7 @@ const route=express.Router()
 
 route.post("/v6/api/job/save",(req, res,next) =>controlller.save(req,res,next))
 route.get("/v6/api/job/save/:id",(req, res,next) =>controlller.findsaved(req,res,next))
+route.get("/v6/api/job/saved/exist",(req, res,next) =>controlller.savedExist(req,res,next))
+
 
 export default route

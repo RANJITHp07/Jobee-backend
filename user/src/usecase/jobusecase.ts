@@ -170,6 +170,18 @@ class Jobusecase{
             throw err
         }
       }
+
+      async countJobapplication(id:string){
+        try{
+            const count=await this.jobRepository.countJobapplication(id)
+            return {
+                status:200,
+                data:count
+            }
+        }catch(err){
+            throw err
+        }
+      }
       
 }
 

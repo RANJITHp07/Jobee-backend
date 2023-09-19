@@ -46,6 +46,16 @@ class SaveRepository implements ISaveRepository{
            throw err
         }
     }
+
+    async savedExist(userId:string,id:string):Promise<unknown>{
+        try{
+            let saved=await SaveModel.findOne({ _id:userId });
+              return (saved && saved.saved?.includes(id)) ? true : false;
+        }catch(err){
+              throw err
+        }
+
+    }
 }
 
 export default SaveRepository

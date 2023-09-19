@@ -156,6 +156,16 @@ class Jobcontroller{
             next(err)
          }
     }
+
+    //to find the mutual skills
+    async mutualSkills(req:Request,res:Response,next:NextFunction){
+        try{
+           const mutualSkills = await this.jobusecase.getMutualskills(req.body.id,req.body.skills)
+           res.status(mutualSkills.status).json(mutualSkills.data)
+        }catch(err){
+              next(err)
+           }
+      }
 }
 
 export default Jobcontroller
