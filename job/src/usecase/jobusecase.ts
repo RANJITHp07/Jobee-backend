@@ -220,6 +220,18 @@ async findSearch(role:string,location:string){
     }
 }
 
+async getMutualskills(id:string,skills:string[]){
+    try{
+        const mutual=await this.jobRepository.getMutualskills(id,skills)
+        return {
+            status:200,
+            data:mutual
+          }
+    }catch(err){
+        throw err
+    }
+}
+
 }
 
 export default Jobusecase

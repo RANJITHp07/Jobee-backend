@@ -47,6 +47,22 @@ class SaveUsecase{
             }
         }
     }
+
+    async savedExist(userId:string,id:string){
+        try{
+            const saved=await this.saverepository.savedExist(userId,id)
+            return {
+              status:200,
+              data:saved
+            }
+        }catch(err){
+          
+          return {
+              status:400,
+              data:err
+          }
+      }
+    }
 }
 
 export default SaveUsecase

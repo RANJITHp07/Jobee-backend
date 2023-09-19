@@ -27,6 +27,8 @@ route.get("/v6/api/job/jobs/company/:id",(req,res,next)=>controller.companyJob(r
 route.delete("/v6/api/job/:id",(req,res,next)=>controller.deleteJob(req,res,next))
 route.get("/v6/api/job/role/search",(req,res,next)=>controller.findSearch(req,res,next))
 route.put("/v6/api/job",(req,res,next)=>controller.updateJob(req,res,next))
+route.put("/v6/api/job",(req,res,next)=>controller.updateJob(req,res,next))
+route.post("/v6/api/job/mutual/skills",(req,res,next)=>controller.mutualSkills(req,res,next))
 
 
 

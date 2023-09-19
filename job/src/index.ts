@@ -14,7 +14,7 @@ const startServer = async () => {
 
     const app = createServer();
 
-    app?.listen(3000, () => {
+    app?.listen(4000, () => {
       console.log("Connected to the server");
     });
   } catch (err) {

@@ -252,6 +252,21 @@ import { CompanyModel } from "../model/companyModel";
             throw err
         }
       }
+
+      //comparing the users skills and job skills
+
+      async getMutualskills(id:string,skills:string[]){
+        try{
+          const mutual=await JobModel.findById(id);
+
+          const skill=skills.filter((s)=>mutual?.skills.includes(s))
+
+          return skill
+
+       }catch(err){
+           throw err
+       }
+      }
     
  } 
 

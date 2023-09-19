@@ -26,6 +26,16 @@ class SaveController{
             next(err)
         }
     }
+
+    async savedExist(req:Request, res:Response,next:NextFunction){
+        try{
+         
+            const save=await this.saveusecase.savedExist(req.query.userId as string ,req.query.id as string)
+            res.status(save.status).json(save.data)
+        }catch(err){
+            next(err)
+        }
+    }
 }
 
 export default SaveController
