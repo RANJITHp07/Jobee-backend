@@ -26,6 +26,7 @@ route.get("/v4/api/profile/shortlist/:id",signinverify,(req:Request, res:Respons
 route.put("/v4/api/profile/user/shortlist",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.shortlist(req,res,next));
 route.get("/v4/api/profile/filter/:id",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.filter(req,res,next));
 route.get("/v4/api/profile/userExist/:id",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.userExist(req,res,next));
+route.get("/v4/api/profile/countjobapplication/:id",(req:Request, res:Response,next:NextFunction)=>controller.countJobapplication(req,res,next));
 
 
 export default  route

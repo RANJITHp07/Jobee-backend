@@ -102,6 +102,19 @@ class JobController{
         next(err)
      }
   }
+
+
+  async countJobapplication(req:Request, res:Response, next:NextFunction){
+   try{
+     
+      const users=await this.jobusecase.countJobapplication(req.params.id);
+         res.status(users.status).json(users.data)
+      
+      
+   }catch(err){
+     next(err)
+  }
+}
 }
 
 export default JobController
