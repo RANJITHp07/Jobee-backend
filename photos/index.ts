@@ -33,23 +33,8 @@ app.post('/v1/api/upload', upload.single('file'), async (req, res) => {
     }
 
     const imageName = generateFileName();
-    let fileBuffer;
-
-    if (file.mimetype === 'application/pdf') {
-      
-      fileBuffer = file.buffer;
-    } else if (file.mimetype.startsWith('image/')) {
-      
-      fileBuffer = await sharp(file.buffer).toBuffer();
-    } else if(file.mimetype.startsWith('vedio/')) {
-      fileBuffer = await sharp(file.buffer).toBuffer();
-      
-    }
-    else{
-      return res.status(400).json({ error: 'Unsupported file format' });
-    }
-
-    await uploadFile(fileBuffer, imageName, file.mimetype);
+   
+    await uploadFile(file.buffer, imageName, file.mimetype);
 
     res.status(200).json(imageName);
   } catch (err) {
