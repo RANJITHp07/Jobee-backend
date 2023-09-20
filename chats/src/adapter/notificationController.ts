@@ -34,4 +34,13 @@ export class Notificationcontoller{
            next(err)
         }
     }
+
+    async createnotification(req:Request,res:Response,next:NextFunction){
+        try{
+            const del=await this.notifcationusecase.createMessages(req.body.id,req.body.message);
+            res.status(del.status).json(del.data)
+        }catch(err){
+           next(err)
+        }
+    }
 }
