@@ -86,13 +86,32 @@ class JobRepository implements IJobRepository  {
 
      async shorlist(id:string,userId:string[]):Promise<unknown>{
       try{ 
-
-            const user=await JobModel.findOneAndUpdate({_id:id,'applications._id':{$in:userId}},{$set:{'applications.$.shortlisted':true}},{new:true})
+         const user = await JobModel.updateMany(
+            { _id: id },
+            { $set: { 'applications.$[elem].shortlisted': true } },
+            {
+              arrayFilters: [{ 'elem._id': { $in: userId } }],
+              new: true,
+            }
+          );
          return user
       }catch(err){
          throw err
       }
      }
+
+     async unshortlist(id: string, userId: string): Promise<unknown> {
+      try {
+        const user = await JobModel.updateMany(
+          { _id: id, 'applications._id': userId },
+          { $set: { 'applications.$.shortlisted': false } },
+          { new: true }
+        );
+        return user;
+      } catch (err) {
+        throw err;
+      }
+    }
 
      async findshortlisted(id:string):Promise<unknown>{
       try{

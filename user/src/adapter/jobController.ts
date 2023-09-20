@@ -50,6 +50,15 @@ class JobController{
       }
    }
 
+   async unshortlist(req:Request, res:Response, next:NextFunction){
+      try{
+         const users=await this.jobusecase.unshortlist(req.body.id,req.body.userId)
+         res.status(users.status).json(users.data)
+      }catch(err){
+         next(err)
+      }
+   }
+
    //get all the shortlisted users
 
    async getshortlist(req:Request, res:Response, next:NextFunction){
