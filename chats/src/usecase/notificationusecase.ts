@@ -43,9 +43,9 @@ export class Notificationusecase{
         }
     }
 
-    async createMessages(user_id:string,message:string){
+    async createMessages(reciever_id:string , user_id:string,message:string){
         try{
-             const getAll=await this.notificationrepository.create(user_id,message)
+             const getAll=await this.notificationrepository.create(reciever_id ,user_id,message)
              return{
                 status:200,
                 data:getAll
