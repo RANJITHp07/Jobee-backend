@@ -42,4 +42,16 @@ export class Notificationusecase{
             throw err
         }
     }
+
+    async createMessages(reciever_id:string , user_id:string,message:string){
+        try{
+             const getAll=await this.notificationrepository.create(reciever_id ,user_id,message)
+             return{
+                status:200,
+                data:getAll
+             }
+        }catch(err){
+            throw err
+        }
+    }
 }
