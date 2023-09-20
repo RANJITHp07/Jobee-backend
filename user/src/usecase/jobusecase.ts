@@ -95,6 +95,24 @@ class Jobusecase{
         }
     }
 
+
+    async unshortlist(id:string,userId:string){
+        try{
+            
+           const user=await this.jobRepository.unshortlist(id,userId);
+           return {
+            status:200,
+            data:user
+           }
+        }catch(err){
+            console.log(err)
+            return {
+                status:400,
+                data:err
+            }
+        }
+    }
+
     async findShortlist(id:string){
         try{
               const shortliseted=await this.jobRepository.findshortlisted(id)

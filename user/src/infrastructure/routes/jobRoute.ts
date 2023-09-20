@@ -24,6 +24,7 @@ route.put("/v4/api/profile/status/jobapplied",signinverify,(req:Request, res:Res
 route.get("/v4/api/profile/getusers/:id",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.findUser(req,res,next));
 route.get("/v4/api/profile/shortlist/:id",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.getshortlist(req,res,next));
 route.put("/v4/api/profile/user/shortlist",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.shortlist(req,res,next));
+route.put("/v4/api/profile/user/unshortlist",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.unshortlist(req,res,next));
 route.get("/v4/api/profile/filter/:id",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.filter(req,res,next));
 route.get("/v4/api/profile/userExist/:id",signinverify,(req:Request, res:Response,next:NextFunction)=>controller.userExist(req,res,next));
 route.get("/v4/api/profile/countjobapplication/:id",(req:Request, res:Response,next:NextFunction)=>controller.countJobapplication(req,res,next));

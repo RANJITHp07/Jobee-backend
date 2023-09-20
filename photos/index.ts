@@ -41,7 +41,11 @@ app.post('/v1/api/upload', upload.single('file'), async (req, res) => {
     } else if (file.mimetype.startsWith('image/')) {
       
       fileBuffer = await sharp(file.buffer).toBuffer();
-    } else {
+    } else if(file.mimetype.startsWith('vedio/')) {
+      fileBuffer = await sharp(file.buffer).toBuffer();
+      
+    }
+    else{
       return res.status(400).json({ error: 'Unsupported file format' });
     }
 
