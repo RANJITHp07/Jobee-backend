@@ -199,14 +199,14 @@ class JobRepository implements IJobRepository  {
    }
 
    //to get how applicants in a fir a job post
-   async countJobapplication(id:string){
-         try{
-            const user:any=await JobModel.findOne({_id:id})
-            return user.applications.length
-         }catch(err){
-            throw err
-         }
-   }
+   async countJobApplication(id: string) {
+      try {
+        const user: any = await JobModel.findOne({ _id: id });
+        return user ? user.applications.length : 0;
+      } catch (err) {
+        throw err;
+      }
+    }
 }
 
 export default JobRepository
