@@ -137,7 +137,7 @@ class JobRepository implements IJobRepository  {
 
      async filter(id:string,status:string[]):Promise<unknown>{
       try{
-           console.log(status)
+           
           const user=await JobModel.findOne({ _id:id, 'applications.status':{$in:status}}).populate('applications._id')
           let selectedusers
           if(user){
@@ -199,7 +199,7 @@ class JobRepository implements IJobRepository  {
    }
 
    //to get how applicants in a fir a job post
-   async countJobApplication(id: string) {
+   async countJobapplication(id: string) {
       try {
         const user: any = await JobModel.findOne({ _id: id });
         return user ? user.applications.length : 0;
