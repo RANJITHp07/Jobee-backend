@@ -3,8 +3,13 @@ import NotificationModel from "../model/notification";
 class NotificationRepository{
     
   async create(reciever_id:string,user_id:string,message:string){
-    await NotificationModel.create({reciever_id,user_id,message})
-    return "Created"
+    try{
+      await NotificationModel.create({reciever_id,user_id,message})
+      return "Created"
+    }catch(err){
+      throw err
+    }
+    
   }
 
   async deleteOne(id:string){
