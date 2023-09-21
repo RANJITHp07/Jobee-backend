@@ -47,8 +47,8 @@ class StripeRepository{
                       quantity: 1,
                     },
                   ],
-                  success_url: "http://localhost:3000/job/form",
-                  cancel_url: "http://localhost:3000/company",
+                  success_url: "https://jobee-omega.vercel.app/job/form",
+                  cancel_url: "https://jobee-omega.vercel.app/company",
                   customer: stripeCustomerId,
                 },
                 {
