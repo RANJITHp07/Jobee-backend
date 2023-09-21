@@ -7,6 +7,10 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/websocket-services: "chat-srv"
 spec:
+  tls:
+    - hosts:
+      - www.jobeee.website
+      secretName: jobeee-tls
   rules:
     - host: www.jobeee.website
       http:
