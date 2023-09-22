@@ -48,6 +48,7 @@ export class SocketManager {
         await ConversationModel.findByIdAndUpdate(senderId, { $set:{lastestMessage:text}},{new:true});
         const notification=new NotificationRepository()
         await notification.create(receiverId,senderId,text)
+
       }
     });
 
