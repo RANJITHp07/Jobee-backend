@@ -6,7 +6,7 @@ import session, { SessionOptions } from 'express-session';
 import AdminRoute from "../routes/adminRoute"
 import { errorMiddleware } from "@job_portal/common";
 
-export const createServer = () => {
+export const  createServer = () => {
   
     // Config
     const app = express();

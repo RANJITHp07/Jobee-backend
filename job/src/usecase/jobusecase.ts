@@ -232,6 +232,18 @@ async getMutualskills(id:string,skills:string[]){
     }
 }
 
+async stopRecruiting(id:string){
+    try{
+         const stopRecruiting=await this.jobRepository.stopRecruiting(id)
+         return {
+            status:200,
+            data:stopRecruiting
+          }
+    }catch(err){
+        throw err
+    }
+}
+
 }
 
 export default Jobusecase

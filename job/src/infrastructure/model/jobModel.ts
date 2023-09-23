@@ -10,6 +10,7 @@ interface IJob extends Document {
   education: string;
   salary: number[];
   workmode: 'Remote' | 'Hybrid' | 'On-Site';
+  recruiting:boolean
   location:string
 }
 
@@ -20,6 +21,7 @@ const JobSchema: Schema = new Schema({
   experience: { type: [Number], required: true },
   skills: { type: [String], required: true },
   education: { type: String},
+  recruiting:{type:String},
   salary: { type: [Number], required: true },
   workmode: { type: String, enum: ['Remote', 'Hybrid', 'On-Site'], required: true },
   location:{type:String,required:true},

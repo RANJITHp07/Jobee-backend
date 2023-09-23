@@ -29,6 +29,7 @@ route.get("/v6/api/job/role/search",(req,res,next)=>controller.findSearch(req,re
 route.put("/v6/api/job",(req,res,next)=>controller.updateJob(req,res,next))
 route.put("/v6/api/job",(req,res,next)=>controller.updateJob(req,res,next))
 route.post("/v6/api/job/mutual/skills",(req,res,next)=>controller.mutualSkills(req,res,next))
+route.post("/v6/api/job/stop/recruiting",(req,res,next)=>controller.stopRecruiting(req,res,next))
 
 
 

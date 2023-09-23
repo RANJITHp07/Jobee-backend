@@ -267,6 +267,18 @@ import { CompanyModel } from "../model/companyModel";
            throw err
        }
       }
+
+
+      //stop recruiting
+
+      async stopRecruiting(id:string){
+        try{
+           await JobModel.findByIdAndUpdate(id,{$set:{ recruiting:true}})
+           return "stopped recruiting"
+        }catch(err){
+          throw err
+        }
+      }
     
  } 
 

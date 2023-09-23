@@ -166,6 +166,15 @@ class Jobcontroller{
               next(err)
            }
       }
+
+      async stopRecruiting(req:Request,res:Response,next:NextFunction){
+           try{
+               const stopRecruiting=await this.jobusecase.stopRecruiting(req.params.id)
+               res.status(stopRecruiting.status).json(stopRecruiting.data)
+           }catch(err){
+        next(err)
+           }
+      }
 }
 
 export default Jobcontroller
