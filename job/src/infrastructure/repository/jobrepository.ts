@@ -257,9 +257,13 @@ import { CompanyModel } from "../model/companyModel";
 
       async getMutualskills(id:string,skills:string[]){
         try{
-          const mutual=await JobModel.findById(id);
+          const mutual = await JobModel.findById(id);
 
-          const skill=skills.filter((s)=>mutual?.skills.includes(s))
+const skill = skills.filter((s) =>
+  mutual?.skills.some((mutualSkill) =>
+    mutualSkill.toLowerCase() === s.toLowerCase()
+  )
+);
 
           return skill
 

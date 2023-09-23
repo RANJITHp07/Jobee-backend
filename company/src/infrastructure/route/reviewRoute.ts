@@ -17,7 +17,7 @@ const route=express.Router()
 
 route.post("/v3/api/company/review",signinverify,(req:Request,res:Response,next:NextFunction)=>controller.create(req,res,next));
 route.put("/v3/api/company/update/review",signinverify,(req:Request,res:Response,next:NextFunction)=>controller.updateComment(req,res,next))
-route.get("/v3/api/company/review/:id",signinverify,(req:Request,res:Response,next:NextFunction)=>controller.getReview(req,res,next))
+route.get("/v3/api/company/review/:id",(req:Request,res:Response,next:NextFunction)=>controller.getReview(req,res,next))
 route.put("/v3/api/company/review/delete/:id",signinverify,(req:Request,res:Response,next:NextFunction)=>controller.delteComment(req,res,next))
 
 export default route

@@ -17,7 +17,7 @@ export class SocketManager {
     this.httpServer = httpServer;
     this.io = new Server(httpServer, {
       cors: {
-        origin: "http://localhost:3000",
+        origin: "https://jobee-omega.vercel.app",
       },
     });
 
@@ -48,6 +48,7 @@ export class SocketManager {
         await ConversationModel.findByIdAndUpdate(senderId, { $set:{lastestMessage:text}},{new:true});
         const notification=new NotificationRepository()
         await notification.create(receiverId,senderId,text)
+
       }
     });
 
