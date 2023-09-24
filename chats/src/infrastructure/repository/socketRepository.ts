@@ -17,7 +17,7 @@ export class SocketManager {
     this.httpServer = httpServer;
     this.io = new Server(httpServer, {
       cors: {
-        origin: "https://jobee-omega.vercel.app",
+        origin: "https://localhost:3000",
       },
     });
 
