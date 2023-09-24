@@ -277,7 +277,7 @@ const skill = skills.filter((s) =>
 
       async stopRecruiting(id:string){
         try{
-           await JobModel.findByIdAndUpdate(id,{$set:{ recruiting:true}})
+           await JobModel.findByIdAndUpdate(id,{$set:{ recruiting:false}})
            return "stopped recruiting"
         }catch(err){
           throw err
