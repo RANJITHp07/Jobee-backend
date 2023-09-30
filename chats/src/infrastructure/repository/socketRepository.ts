@@ -33,15 +33,18 @@ export class SocketManager {
       this.io.emit("getUsers", this.users);
     });
 
-    socket.on("sendMessage", async({ senderId, receiverId, text }: { senderId: string; receiverId: string; text: string }) => {
+    socket.on("sendMessage", async({ senderId, receiverId, text ,type}: { senderId: string; receiverId: string; text: string,type:string }) => {
        
       const user = this.getUser(receiverId);
-    
+      
       
       if (user) {
         this.io.to(user.socketId).emit("getMessage", {
           senderId,
-          text,
+          text:{
+            text,
+            type
+          }
         });
         await ConversationModel.findByIdAndUpdate(senderId, { $set:{lastestMessage:text}},{new:true});
       }else {
