@@ -18,7 +18,6 @@ export class SocketManager {
     this.io = new Server(httpServer, {
       cors: {
         origin: "https://jobee-dev.vercel.app"
-      
       },
     });
 
@@ -37,7 +36,6 @@ export class SocketManager {
     socket.on("sendMessage", async({ senderId, receiverId, text ,type}: { senderId: string; receiverId: string; text: string,type:string }) => {
        
       const user = this.getUser(receiverId);
-      
       if (user) {
          console.log(user)
         this.io.to(user.socketId).emit("getMessage", {
