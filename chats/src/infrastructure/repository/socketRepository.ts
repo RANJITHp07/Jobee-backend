@@ -36,7 +36,6 @@ export class SocketManager {
     socket.on("sendMessage", async({ senderId, receiverId, text ,type}: { senderId: string; receiverId: string; text: string,type:string }) => {
        
       const user = this.getUser(receiverId);
-     
       if (user) {
          console.log(user)
         this.io.to(user.socketId).emit("getMessage", {
