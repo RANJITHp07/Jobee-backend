@@ -5,7 +5,10 @@ import { connectDB } from "./infrastructure/config/connectdb";
 import { Rabbitmqcreate, Rabbitmqupadte } from "./infrastructure/middleware/rabbitmqMiddleware";
 
 const startServer = async (): Promise<void> => {
+    // mongoDB connection
     await connectDB();
+
+    //rabbitMQ middlewares
     await connect();
     await Rabbitmqcreate();
     await Rabbitmqupadte()

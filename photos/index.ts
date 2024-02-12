@@ -23,7 +23,7 @@ const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex
 
 
 
-
+// string the files in the aws S3 bucket
 app.post('/v1/api/upload', upload.single('file'), async (req, res) => {
   try {
     const file = req.file;

@@ -6,6 +6,8 @@ import { rabbitmqSave,rabbitmqUpdate } from "./infrastructure/middleware/rabbitm
 const startServer = async () => {
   try {
     await connectDB();
+
+    //rabbitMQ middlewares
     await connect();
     await rabbitmqSave()
     await rabbitmqUpdate()

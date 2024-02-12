@@ -6,6 +6,8 @@ import {RabbitmqSave, RabbitmqUpdate, RabbitmqUpdateComment} from "./infrastruct
 const startServer = async () => {
   try {
     await connectDB();
+
+    // rabbitMQ middlewares
     await connect();
     await RabbitmqUpdateComment()
     await RabbitmqSave();
@@ -14,6 +16,8 @@ const startServer = async () => {
 
     const app = createServer();
 
+
+    //listener
     app?.listen(3000, () => {
       console.log("Connected to the server");
     });

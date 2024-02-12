@@ -7,12 +7,16 @@ import { rabbitmqSave,rabbitmqUpdate } from "./infrastructure/middleware/rabbitm
 const startServer = async () => {
   try {
     await connectDB();
+
+    //rabbitMQ middleware 
     await connect();
     await rabbitmqSave()
     await rabbitmqUpdate()
 
     const app = createServer();
 
+
+    //listener
     app?.listen(3000, () => {
       console.log("Connected to the server");
     });
