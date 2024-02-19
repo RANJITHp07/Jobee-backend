@@ -18,12 +18,12 @@ spec:
           env:
             - name: AWS_BUCKET_NAME
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: photo-config
                   key: AWS_BUCKET_NAME
             - name: AWS_BUCKET_REGION
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: photo-config
                   key: AWS_BUCKET_REGION
             - name: AWS_ACCESS_KEY
