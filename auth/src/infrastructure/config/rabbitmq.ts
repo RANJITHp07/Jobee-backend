@@ -3,6 +3,7 @@ import amqp, { Channel, Connection } from "amqplib";
 let channel: Channel | undefined;
 let connection: Connection | undefined;
 
+//connect rabbitMQ
 const connect = async function (): Promise<void> {
   return new Promise<void>(async (resolve, reject) => {
     try {
